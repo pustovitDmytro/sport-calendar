@@ -1,4 +1,6 @@
 #!./node_modules/.bin/babel-node
+
+
 /* eslint-disable no-unused-expressions */
 import { docopt } from 'docopt';
 import { promisify } from 'bluebird';

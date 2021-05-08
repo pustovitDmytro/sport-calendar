@@ -2,12 +2,12 @@
 
 import { docopt } from 'docopt';
 import { promisify } from 'bluebird';
-import sports from '../../src/sports';
+import flashScore from '../../src/flashScore';
 
 
 const doc =
 `Usage:
-   sport.js [--verbose] [--quiet]
+   sport.js flashScore [--verbose] [--quiet]
    sport.js -h | --help
 
 Options:
@@ -16,19 +16,23 @@ Options:
    -q --quiet                Hide logging
 `;
 
-const opts = docopt(doc);
+const params = docopt(doc);
 
 main({
-    verbose : opts['--verbose'],
-    quiet   : opts['--quiet']
+    verbose    : params['--verbose'],
+    quiet      : params['--quiet'],
+    flashScore : params.flashScore
 });
 
-export async function main({ verbose, quiet }) {
-    verbose && console.log('TESTING SPORTS');
-    const leagues = await sports.leagues();
+export async function main(opts) {
+    params.verbose && console.log('TESTING SPORTS');
+    if (params.flashScore) {
+        // const table = await flashScore.table();
 
-    console.log('leagues: ', leagues);
+        // console.log('table: ', table);
+        console.log('fixtures', await flashScore.fixtures());
+    }
 
-    // process.exit();
+    process.exit();
 }
 
