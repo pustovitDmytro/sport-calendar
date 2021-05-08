@@ -60,7 +60,7 @@
     "test-console": "^1.1.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bluebird": "^3.5.5",
     "cheerio": "^1.0.0-rc.3",
     "docopt": "^0.6.2",
